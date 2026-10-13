@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script type="text/javascript">
+        function identificarAluno(){
+            var obj = localStorage.getItem("ra");
+
+            if (obj!= null){
+                document.getElementById("aluno").innerText = obj;}
+                else{
+                    document.getElementById("aluno").innerText = "";
+                }
+        }
+
+        function gravar(){
+            localStorage.ra = document.getElementById("ra").value;
+
+            alert("RA Gravado");
+            document.getElementById("ra").value = "";
+        }
+    </script>
+</head>
+<body onload="identificarAluno();">
+    <h1>local storage</h1>
+     Olá <span id="aluno"></span>
+    
+     <br><br>
+
+     <form>
+        RA:<br>
+        <input type="text" name="ra" id="ra">
+        <button type="button" onclick="gravar();">Gravar</button>
+        <hr>
+
+        <button type="button" onclick="ler();">
+            ler ra
+        </button>
+        <button type="button" onclick="remover();">remover ra</button>
+     </form>
+</body>
+</html>
